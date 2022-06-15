@@ -1,4 +1,5 @@
 require('dotenv').config();
+import Middleware from './middleware/validToken';
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -10,8 +11,8 @@ app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
 // RUTAS
-app.use('', routes.HealthCheck);
-app.use('', routes.Fintual);
+app.use('', routes.Auth);
+app.use('', Middleware.checkToken, routes.HealthCheck);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

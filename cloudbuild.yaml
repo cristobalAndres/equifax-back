@@ -1,0 +1,22 @@
+steps:
+  - id: npm-install
+    name: node:12
+    entrypoint: npm
+    args: ["install"]
+
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "gcloud secrets versions access latest --secret=equifax-back > .env",
+      ]
+
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy --no-promote",
+      ]
+timeout: "1600s"

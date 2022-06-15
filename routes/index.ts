@@ -1,7 +1,7 @@
 import HealthCheck from './health-check/health.route';
-import Fintual from './fintual/fintual.route';
+import Auth from './auth/auth.route';
 
 export default {
   HealthCheck,
-  Fintual
+  Auth
 };

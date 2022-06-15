@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default class FintualServices {
+export default class AuthServices {
   static async getStocksApi(nameStocks: string, params?: string) {
     try {
       // Api para obtener información respecto a las accion seleccionada

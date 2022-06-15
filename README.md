@@ -1,6 +1,4 @@
-# fintual-back
-
-Projecto expressJS encargado de los servicios de consulta de acciones y calculos correspondientes
+# equifax-back
 
 Install
 npm i
