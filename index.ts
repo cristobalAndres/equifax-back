@@ -11,8 +11,9 @@ app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
 // RUTAS
+app.use('', routes.HealthCheck);
 app.use('', routes.Auth);
-app.use('', Middleware.checkToken, routes.HealthCheck);
+// app.use('', Middleware.checkToken, routes.HealthCheck);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
