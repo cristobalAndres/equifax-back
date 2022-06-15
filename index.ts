@@ -13,7 +13,8 @@ app.use(cors());
 // RUTAS
 app.use('', routes.HealthCheck);
 app.use('', routes.Auth);
-// app.use('', Middleware.checkToken, routes.HealthCheck);
+app.use('/users', Middleware.checkToken, routes.Users);
+app.use('/tickets', Middleware.checkToken, routes.Tickets);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

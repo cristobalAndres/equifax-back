@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import AuthController from '../../controllers/auth/auth.controller'
-import Middleware from '../../middleware/validToken';
+import AuthController from '../../controllers/auth/auth.controller';
 
 // Rutas
 const router = Router();
