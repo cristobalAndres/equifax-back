@@ -25,7 +25,7 @@ export default class TicketsController {
   static async updateTicket(req: Request, res: Response) {
     try {
       const body = req.body;
-      await TicketsRepository.updateTicket(body, body.id)
+      await TicketsRepository.updateTickets(body)
       return res.sendStatus(204);
     } catch (error) {
       return res.status(400).json(error.message);
@@ -35,7 +35,6 @@ export default class TicketsController {
   static async deleteTicket(req: Request, res: Response) {
     try {
       const params = req.params;
-      console.log('HOLA MUNDO ->', params)
       await TicketsRepository.deleteTicket(+params.id)
       return res.sendStatus(200);
     } catch (error) {

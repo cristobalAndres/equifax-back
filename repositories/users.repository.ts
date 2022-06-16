@@ -5,8 +5,9 @@ export default class UsersRepository {
     try {
       const users = await Users.findAll({
         attributes: ['id', 'name', 'email']
-      }) as IUsers[];
-      return users;
+      });
+      const data = users as IUsers[]
+      return data;
     } catch (error) {
       console.log(`ERROR - ${error}`)
       throw new Error(error);
@@ -19,8 +20,9 @@ export default class UsersRepository {
         where: {
           email,
         }
-      }) as IUsers;
-      return users;
+      });
+      const data = users as IUsers
+      return data;
     } catch (error) {
       console.log(`ERROR - ${error}`)
       throw new Error(error);

@@ -5,7 +5,7 @@ import UsersRepository from '../../repositories/users.repository';
 export default class UsersController {
   static async getUsers(req: Request, res: Response) {
     try {
-      const users = await UsersRepository.getUsers()
+      const users = await UsersRepository.getUsers();
       return res.json(users);
     } catch (error) {
       return res.status(400).json(error.message);

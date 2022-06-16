@@ -49,11 +49,11 @@ export default class TicketsRepository {
     }
   }
 
-  static async updateTicket(ticket: ITickets, id: number) {
+  static async updateTickets(ticket: ITickets) {
     try {
       const create = await Tickets.update(ticket, {
         where: {
-          id,
+          id: ticket.id,
         },
       });
       return create;
