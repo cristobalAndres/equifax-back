@@ -15,6 +15,7 @@ export default class TicketsRepository {
           model: Users,
           as: 'users'
         },
+        order: [["created_at", "DESC"]],
         where,
       }) as ITickets[];
       return tickets;
