@@ -30,8 +30,11 @@ const Ticket = sequelize.define("tickets", {
   updated_at: { type: DataTypes.DATE },
   deleted_at: { type: DataTypes.DATE },
 }, {
-  timestamps: false,
-  paranoid: true
+  timestamps: true,
+  paranoid: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+  deletedAt: 'deleted_at',
 }) as GenericStatic<ITickets>;
 
 Ticket.belongsTo(Users, {

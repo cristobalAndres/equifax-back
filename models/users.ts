@@ -18,8 +18,11 @@ const User = sequelize.define("users", {
   updated_at: { type: DataTypes.DATE },
   deleted_at: { type: DataTypes.DATE },
 }, {
-  timestamps: false,
-  paranoid: true
+  timestamps: true,
+  paranoid: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+  deletedAt: 'deleted_at',
 }) as GenericStatic<IUsers>;
 
 export default User;

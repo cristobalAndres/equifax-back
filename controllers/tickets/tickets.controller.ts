@@ -35,6 +35,7 @@ export default class TicketsController {
   static async deleteTicket(req: Request, res: Response) {
     try {
       const params = req.params;
+      console.log('HOLA MUNDO ->', params)
       await TicketsRepository.deleteTicket(+params.id)
       return res.sendStatus(204);
     } catch (error) {
