@@ -1,6 +1,7 @@
 // Info: https://sequelize.org/master/manual/typescript.html
 import { Model, DataTypes } from 'sequelize';
 import { sequelize, GenericStatic } from '../config/database';
+import Users from './users';
 
 export interface ITickets extends Model {
   readonly id: number;
@@ -31,5 +32,10 @@ const Ticket = sequelize.define("tickets", {
 }, {
   timestamps: false
 }) as GenericStatic<ITickets>;
+
+Ticket.belongsTo(Users, {
+  foreignKey: 'user_id',
+  as: 'users'
+});
 
 export default Ticket;

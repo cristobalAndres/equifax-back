@@ -1,9 +1,14 @@
-import { Tickets, ITickets } from '../models';
+import { Tickets, ITickets, Users } from '../models';
 
 export default class TicketsRepository {
   static async getTickets() {
     try {
       const tickets = await Tickets.findAll({
+        include: {
+          attributes: ['id', 'name', 'email'],
+          model: Users,
+          as: 'users'
+        },
       }) as ITickets[];
       return tickets;
     } catch (error) {
