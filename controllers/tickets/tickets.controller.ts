@@ -37,7 +37,7 @@ export default class TicketsController {
       const params = req.params;
       console.log('HOLA MUNDO ->', params)
       await TicketsRepository.deleteTicket(+params.id)
-      return res.sendStatus(204);
+      return res.sendStatus(200);
     } catch (error) {
       return res.status(400).json(error.message);
     }
