@@ -10,7 +10,7 @@ export default class middleware {
       req.user = verified
       next() // continuamos
     } catch (error) {
-      res.status(400).json({ error: 'token no es válido' })
+      res.status(401).json({ error: 'token no es válido' })
     }
   }
 }
