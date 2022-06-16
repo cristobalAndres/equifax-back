@@ -12,4 +12,8 @@ router.post(
   '/create',TicketsController.createTicket
 );
 
+router.post(
+  '/update',TicketsController.updateTicket
+);
+
 export default router;

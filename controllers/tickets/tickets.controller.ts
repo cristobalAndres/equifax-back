@@ -21,4 +21,14 @@ export default class TicketsController {
       return res.status(400).json(error.message);
     }
   }
+
+  static async updateTicket(req: Request, res: Response) {
+    try {
+      const body = req.body;
+      await TicketsRepository.updateTicket(body, body.id)
+      return res.sendStatus(204);
+    } catch (error) {
+      return res.status(400).json(error.message);
+    }
+  }
 }

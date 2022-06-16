@@ -48,4 +48,18 @@ export default class TicketsRepository {
       throw new Error(error);
     }
   }
+
+  static async updateTicket(ticket: ITickets, id: number) {
+    try {
+      const create = await Tickets.update(ticket, {
+        where: {
+          id,
+        },
+      });
+      return create;
+    } catch (error) {
+      console.log(`ERROR - ${error}`)
+      throw new Error(error);
+    }
+  }
 }
