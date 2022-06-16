@@ -16,4 +16,8 @@ router.post(
   '/update',TicketsController.updateTicket
 );
 
+router.delete(
+  '/delete/:id',TicketsController.updateTicket
+);
+
 export default router;

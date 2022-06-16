@@ -31,4 +31,14 @@ export default class TicketsController {
       return res.status(400).json(error.message);
     }
   }
+
+  static async deleteTicket(req: Request, res: Response) {
+    try {
+      const params = req.params;
+      await TicketsRepository.deleteTicket(+params.id)
+      return res.sendStatus(204);
+    } catch (error) {
+      return res.status(400).json(error.message);
+    }
+  }
 }

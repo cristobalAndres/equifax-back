@@ -62,4 +62,18 @@ export default class TicketsRepository {
       throw new Error(error);
     }
   }
+
+  static async deleteTicket(id: number) {
+    try {
+      const ticket = await Tickets.destroy({
+        where: {
+          id,
+        },
+      });
+      return ticket;
+    } catch (error) {
+      console.log(`ERROR - ${error}`)
+      throw new Error(error);
+    }
+  }
 }
