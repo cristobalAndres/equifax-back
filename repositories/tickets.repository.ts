@@ -1,7 +1,13 @@
 import { Tickets, ITickets, Users } from '../models';
 
 export default class TicketsRepository {
-  static async getTickets() {
+  static async getTickets(params = null) {
+    let where = {};
+    if (params) {
+      where = {
+        status: params,
+      };
+    }
     try {
       const tickets = await Tickets.findAll({
         include: {
@@ -9,6 +15,7 @@ export default class TicketsRepository {
           model: Users,
           as: 'users'
         },
+        where,
       }) as ITickets[];
       return tickets;
     } catch (error) {

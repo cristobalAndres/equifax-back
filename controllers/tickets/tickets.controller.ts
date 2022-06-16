@@ -4,7 +4,8 @@ import TicketsRepository from '../../repositories/tickets.repository';
 export default class TicketsController {
   static async getTickets(req: Request, res: Response) {
     try {
-      const tickets = await TicketsRepository.getTickets()
+      const params = req.params;
+      const tickets = await TicketsRepository.getTickets(params.status)
       return res.json(tickets);
     } catch (error) {
       return res.status(400).json(error.message);
